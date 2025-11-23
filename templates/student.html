@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="card">
+  <h3>Student: Mark Attendance</h3>
+
+  {% if message %}
+    <p class="{{ 'success' if 'success' in message.lower() else 'error' }}">
+      {{ message }}
+    </p>
+  {% endif %}
+
+  <form method="post">
+    <label>Student ID</label>
+    <input type="text" name="student_id" placeholder="Enter your student ID">
+
+    <label>Token</label>
+    <input type="text" name="token" placeholder="Enter the class token">
+
+    <div style="margin-top:10px;">
+      <button type="submit">Mark Attendance</button>
+    </div>
+  </form>
+</div>
+
+<div class="card">
+  <h4>Recent Tokens</h4>
+  <table>
+    <tr><th>Token</th><th>Created At (UTC)</th></tr>
+    {% for t in tokens %}
+    <tr>
+      <td>{{ t[0] }}</td>
+      <td>{{ t[1] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+<div class="card">
+  <h4>Recent Attendance Entries</h4>
+  <table>
+    <tr><th>Student ID</th><th>Token</th><th>Marked At (UTC)</th></tr>
+    {% for m in marks %}
+    <tr>
+      <td>{{ m[0] }}</td>
+      <td>{{ m[1] }}</td>
+      <td>{{ m[2] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+{% endblock %}
