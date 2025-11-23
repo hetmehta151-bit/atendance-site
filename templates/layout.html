@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Attendance App</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background:#f7f9fc; }
+    .container { max-width:900px; margin:0 auto; background:white; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.06); border-radius:8px;}
+    header { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;}
+    nav a { margin-left:10px; text-decoration:none; color:#1565c0; font-weight:600; }
+    .card { background:#fff; padding:15px; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,0.03); margin-bottom:15px;}
+    label { display:block; margin-top:8px; font-weight:600;}
+    input[type=text] { width:100%; padding:8px; margin-top:6px; border-radius:6px; border:1px solid #ddd;}
+    button { background:#1976d2; color:white; border:none; padding:10px 14px; border-radius:6px; cursor:pointer;}
+    .success { color:green; }
+    .error { color:red; }
+    table { width:100%; border-collapse:collapse; margin-top:10px;}
+    th,td { padding:8px; border-bottom:1px solid #eee; text-align:left; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h2>Attendance App</h2>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/faculty">Faculty</a>
+        <a href="/student">Student</a>
+        <a href="/admin">Admin</a>
+      </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>
