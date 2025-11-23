@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="card">
+  <h3>Admin: Attendance Records</h3>
+
+  <table>
+    <tr>
+      <th>Student ID</th>
+      <th>Token</th>
+      <th>Marked At (UTC)</th>
+    </tr>
+
+    {% for m in marks %}
+    <tr>
+      <td>{{ m[0] }}</td>
+      <td>{{ m[1] }}</td>
+      <td>{{ m[2] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <p style="margin-top:10px;">
+    <a href="/download_db">Download Full Attendance Database</a>
+  </p>
+</div>
+
+{% endblock %}
