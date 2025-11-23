@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card">
+  <h3>Faculty: Generate Class Token</h3>
+
+  <form method="post">
+    <p>Click the button to generate a one-time token for the class. A QR code will also be created.</p>
+    <button type="submit">Generate Token & QR</button>
+  </form>
+</div>
+
+{% if token %}
+<div class="card">
+  <h4>Generated Token</h4>
+  <p><strong>{{ token }}</strong></p>
+
+  <p>Students can scan this QR or type the token manually.</p>
+
+  <img src="data:image/png;base64,{{ qr }}" 
+       alt="QR Code" 
+       style="max-width:220px; border-radius:8px; border:1px solid #eee;">
+</div>
+{% endif %}
+{% endblock %}
